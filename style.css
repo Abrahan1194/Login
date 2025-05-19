@@ -1,0 +1,152 @@
+/* Estilos generales del cuerpo */
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background-image: url('medellin.jpg'); /* Ruta a tu imagen */
+   background-color: black;
+   background-repeat: no-repeat; /* Evita que la imagen se repita */
+   background-position: center; /* Centra la imagen en el fondo */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   margin: 0;
+}
+/* Contenedor del formulario de login */
+.login-container {
+    background-color: transparent; /* Fondo blanco puro para el contenedor */
+    padding: 40px; /* Relleno generoso para espacio interno */
+    border-radius: 15px; /* Bordes más redondeados y suaves */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Sombra profunda y suave que lo hace "flotar" */
+    width: 400px; /* Un ancho cómodo para el formulario */
+    text-align: center;
+    position: relative; /* Importante para la sombra del botón y otros efectos */
+    overflow: hidden; /* Oculta cualquier cosa que se salga de los bordes redondeados */
+    transform: translateY(0); /* Posición inicial para la animación */
+    animation: fadeIn 0.8s ease-out forwards; /* Animación de entrada al cargar */
+}
+
+/* Animación para que el contenedor aparezca suavemente */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Empieza invisible */
+        transform: translateY(-30px); /* Empieza un poco más arriba */
+    }
+    to {
+        opacity: 1; /* Termina completamente visible */
+        transform: translateY(0); /* Termina en su posición normal */
+    }
+}
+
+/* Título dentro del contenedor (Iniciar Sesión) */
+h2 {
+    color: #3498db; /* Azul vibrante para el título */
+    margin-bottom: 30px; /* Espacio debajo del título */
+    font-size: 36px; /* Título más grande y dominante */
+    font-weight: 700; /* Texto más audaz */
+    letter-spacing: -0.5px; /* Ajuste sutil para una mejor lectura */
+    font-family: 'Poppins', sans-serif; /* Usamos Poppins para el título */
+}
+
+/* Grupo de entrada (para Usuario y Contraseña) */
+.input-group {
+    margin-bottom: 25px; /* Más espacio entre cada campo de entrada */
+    text-align: left; /* Alinea las etiquetas y campos a la izquierda */
+}
+
+.input-group label {
+    display: block; /* Hace que la etiqueta ocupe su propia línea */
+    margin-bottom: 8px; /* Espacio debajo de la etiqueta */
+    color: #3498db; /* Azul para las etiquetas */
+    font-weight: 500; /* Peso de fuente medio */
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif; /* Usamos Poppins para las etiquetas */
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: calc(100% - 28px); /* Ajusta el ancho para el padding y el borde */
+    padding: 14px; /* Relleno generoso para que el campo se vea más grande y fácil de usar */
+    border: 1px solid #ddd; /* Borde muy sutil y claro */
+    border-radius: 8px; /* Bordes suavemente redondeados en los campos */
+    font-size: 17px; /* Tamaño de fuente más grande dentro del campo */
+    color: #333; /* Color de texto oscuro para mayor legibilidad */
+    background-color: #f9f9f9; /* Un fondo ligeramente gris para los inputs, que los hace "flotar" un poco */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Transiciones suaves al interactuar */
+    font-family: 'Poppins', sans-serif; /* Usamos Poppins para el texto de los inputs */
+}
+
+/* Efecto al enfocar (hacer clic o tabular) en los campos */
+.input-group input[type="text"]:focus,
+.input-group input[type="password"]:focus {
+    border-color: #3498db; /* Borde azul vibrante al enfocar */
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.25); /* Una sombra suave azul que se expande */
+    background-color: #ffffff; /* El fondo del campo se vuelve blanco al enfocar */
+    outline: none; /* Quita el contorno feo que algunos navegadores ponen por defecto */
+}
+
+/* Botón de enviar (Entrar / Iniciar Sesión) */
+button {
+    background-color: #e74c3c; /* Rojo principal para el botón */
+    color: white; /* Texto blanco en el botón */
+    padding: 16px 30px; /* Relleno generoso para un botón más grande */
+    border: none; /* Sin borde por defecto */
+    border-radius: 8px; /* Bordes redondeados del botón */
+    font-size: 19px; /* Tamaño de fuente más grande */
+    font-weight: 600; /* Texto seminegrita */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Animaciones suaves */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin-top: 20px; /* Espacio superior */
+    letter-spacing: 0.5px; /* Espaciado entre letras para un look limpio */
+    box-shadow: 0 8px 15px rgba(231, 76, 60, 0.3); /* Sombra inicial sutil para el botón */
+    font-family: 'Poppins', sans-serif; /* Usamos Poppins para el botón */
+}
+
+/* Efecto al pasar el ratón por el botón */
+button:hover {
+    background-color: #c0392b; /* Rojo más oscuro al pasar el ratón */
+    transform: translateY(-3px); /* El botón se levanta un poco */
+    box-shadow: 0 12px 20px rgba(231, 76, 60, 0.4); /* La sombra se hace más grande y pronunciada */
+}
+
+/* Efecto al hacer clic en el botón */
+button:active {
+    transform: translateY(0); /* Vuelve a su posición original */
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.2); /* La sombra se reduce un poco */
+}
+
+/* Enlaces adicionales (Registro) */
+.links {
+    margin-top: 35px; /* Más espacio superior para los enlaces */
+    font-size: 15px;
+    color: #555; /* Color de texto más suave */
+    font-family: 'Poppins', sans-serif; /* Usamos Poppins para los enlaces */
+}
+
+.links a {
+    color: #3498db; /* Azul para los enlaces */
+    text-decoration: none; /* Quita el subrayado por defecto */
+    font-weight: 500;
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Efecto al pasar el ratón por los enlaces */
+.links a:hover {
+    color: #2980b9; /* Azul más oscuro al pasar el ratón */
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+/* Tamaños y posiciones aleatorias para los círculos */
+.background-animation span:nth-child(1) { left: 10%; width: 60px; height: 60px; animation-duration: 10s; }
+.background-animation span:nth-child(2) { left: 25%; width: 80px; height: 80px; animation-duration: 12s; animation-delay: 2s; }
+.background-animation span:nth-child(3) { left: 50%; width: 40px; height: 40px; animation-duration: 8s; animation-delay: 1s; }
+.background-animation span:nth-child(4) { left: 70%; width: 100px; height: 100px; animation-duration: 15s; }
+.background-animation span:nth-child(5) { left: 85%; width: 50px; height: 50px; animation-duration: 11s; animation-delay: 3s; }
+.background-animation span:nth-child(6) { left: 5%; width: 90px; height: 90px; animation-duration: 13s; animation-delay: 0.5s; }
+.background-animation span:nth-child(7) { left: 90%; width: 70px; height: 70px; animation-duration: 9s; animation-delay: 2.5s; }
+
+/* Animación para los círculos flotantes */
+@keyframes floatCircles {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    50% { transform: translateY(-100vh) scale(1.1); opacity: 0.3; } /* Flota hacia arriba */
+    100% { transform: translateY(-200vh) scale(1); opacity: 0; } /* Desaparece arriba */
+}
