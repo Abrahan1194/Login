@@ -1,152 +1,245 @@
-/* Estilos generales del cuerpo */
-body {
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   background-image: url('medellin.jpg'); /* Ruta a tu imagen */
-   background-color: black;
-   background-repeat: no-repeat; /* Evita que la imagen se repita */
-   background-position: center; /* Centra la imagen en el fondo */
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   min-height: 100vh;
-   margin: 0;
-}
-/* Contenedor del formulario de login */
-.login-container {
-    background-color: transparent; /* Fondo blanco puro para el contenedor */
-    padding: 40px; /* Relleno generoso para espacio interno */
-    border-radius: 15px; /* Bordes más redondeados y suaves */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Sombra profunda y suave que lo hace "flotar" */
-    width: 400px; /* Un ancho cómodo para el formulario */
-    text-align: center;
-    position: relative; /* Importante para la sombra del botón y otros efectos */
-    overflow: hidden; /* Oculta cualquier cosa que se salga de los bordes redondeados */
-    transform: translateY(0); /* Posición inicial para la animación */
-    animation: fadeIn 0.8s ease-out forwards; /* Animación de entrada al cargar */
+/* Importar fuente de Google Fonts para una mejor tipografía */
+/* 'Roboto' es una fuente limpia y moderna, ideal para interfaces de usuario. */
+@import url('https://fonts.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+/* Definición de Variables CSS (Custom Properties) */
+/* Esto facilita la gestión de colores y otros valores, permitiendo cambios globales sencillos. */
+:root {
+    /* Paleta de colores principal */
+    --primary-color: #007bff; /* Azul vibrante para elementos interactivos */
+    --primary-dark-color: #0056b3; /* Azul más oscuro para estados hover/active */
+    
+    /* Colores de fondo */
+    --background-color: #e9ecef; /* Gris claro para el fondo general de la página */
+    --card-background: #ffffff; /* Blanco puro para el contenedor del formulario */
+    
+    /* Colores de texto */
+    --text-color-dark: #ff8b07; /* Gris oscuro para títulos y etiquetas importantes */
+    --text-color-medium: #6c757d; /* Gris medio para subtítulos y texto secundario */
+    
+    /* Colores de borde y sombra */
+    --border-color: #ced4da; /* Gris claro para bordes de inputs */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra suave para elevación de elementos */
+    --focus-shadow-color: rgba(0, 123, 255, 0.25); /* Sombra para el estado focus de inputs */
 }
 
-/* Animación para que el contenedor aparezca suavemente */
+/* Estilos Generales del Cuerpo (body) */
+body {
+    font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto a todo el cuerpo */
+    background-color: var(--background-color); /* Fondo de la página usando variable CSS */
+    display: flex; /* Utiliza Flexbox para centrar contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el 100% del alto de la ventana */
+    margin: 0; /* Elimina el margen por defecto del body */
+    padding: 20px; /* Añade un padding general para evitar que el contenido toque los bordes en pantallas pequeñas */
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total del elemento */
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Asegura que el body ocupe toda la altura */
+    overflow: hidden; /* Evita barras de desplazamiento no deseadas */
+    font-family: Arial, sans-serif;
+    color: #fff; /* Color de texto para que contraste con el fondo */
+}
+
+body {
+    /*Aplicalaimagendefondo*/background-image: url('goku.jpg');
+    /*¡IMPORTANTE:;
+    Reemplazaestoconlarutaatuimagen!*/background-size: cover;
+    /*Laimagencubrirátodoelcontenedor*/background-repeat: no-repeat;
+    background-position: center center;
+    /*Posicióninicial*//*Defineeltamañodel"lienzo"delaanimación,másgrandequelaventana*/background-size:110% 110%;
+    /*Porejemplo,hazla110%másgrandeparatenerespacioparamoverse*//*Aplicalaanimación*/animation: panBackground 15s linear infinite alternate;
+}
+
+/* Define la animación */
+@keyframes panBackground {
+    0% {
+        background-position: 0% 0%; /* Inicia en la esquina superior izquierda */
+    }
+    100% {
+        background-position: 100% 100%; /* Termina en la esquina inferior derecha */
+    }
+}
+
+/* Estilos para el contenido para que sea visible sobre el fondo */
+.content {
+    position: relative; /* Asegura que el contenido esté por encima del fondo */
+    z-index: 1; /* Coloca el contenido por encima de la imagen de fondo */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3); /* Un ligero overlay oscuro para mejor legibilidad */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.cambiar-cursor {
+  cursor: pointer; /* Cambia el cursor a una mano cuando el mouse se posiciona sobre el botón */
+  cursor: url("nube.jpeg"), default;
+}
+.login-wrapper {
+    display: flex; /* Utiliza Flexbox para su propio contenido (el login-container) */
+    justify-content: flex-start; /* Centra horizontalmente el login-container dentro de este wrapper */
+    align-items: center; /* Centra verticalmente el login-container */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 20px; /* Añade un padding interno para espacio alrededor del formulario */
+    box-sizing: border-box; /* Incluye padding en el tamaño total */
+    margin-left: 70px;
+}
+
+/* Contenedor del Formulario de Login (la "tarjeta") */
+.login-container {
+    
+    background-color: black ; /* Fondo blanco para la tarjeta */
+    padding: 40px; /* Mayor padding interno para más espacio entre el contenido y los bordes */
+    border-radius: 12px; /* Esquinas más redondeadas para un look moderno */
+    box-shadow: 0 6px 20px var(--shadow-color); /* Sombra más pronunciada y suave para efecto de elevación */
+    width: 100%; /* Ocupa el 100% del ancho de su contenedor (.login-wrapper) */
+    max-width: 400px; /* Ancho máximo específico para el formulario, manteniendo un tamaño legible */
+    text-align: center; /* Centra el texto dentro del contenedor */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el width/height */
+    animation: fadeIn 0.5s ease-out; /* Animación de entrada suave */
+}
+
+/* Animación de entrada para el contenedor del login */
 @keyframes fadeIn {
     from {
-        opacity: 0; /* Empieza invisible */
-        transform: translateY(-30px); /* Empieza un poco más arriba */
+        opacity: 0;
+        transform: translateY(-20px);
     }
     to {
-        opacity: 1; /* Termina completamente visible */
-        transform: translateY(0); /* Termina en su posición normal */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Título dentro del contenedor (Iniciar Sesión) */
-h2 {
-    color: #3498db; /* Azul vibrante para el título */
-    margin-bottom: 30px; /* Espacio debajo del título */
-    font-size: 36px; /* Título más grande y dominante */
-    font-weight: 700; /* Texto más audaz */
-    letter-spacing: -0.5px; /* Ajuste sutil para una mejor lectura */
-    font-family: 'Poppins', sans-serif; /* Usamos Poppins para el título */
+/* Estilos del Título Principal (h1) */
+h1 {
+    color: var(--text-color-dark); /* Color oscuro para el título */
+    margin-bottom: 10px; /* Espacio debajo del título */
+    font-size: 2.2em; /* Tamaño de fuente más grande para destacar */
+    font-weight: 700; /* Fuente en negrita para mayor impacto */
+    letter-spacing: -0.02em; /* Ligero ajuste en el espaciado entre letras */
 }
 
-/* Grupo de entrada (para Usuario y Contraseña) */
-.input-group {
-    margin-bottom: 25px; /* Más espacio entre cada campo de entrada */
-    text-align: left; /* Alinea las etiquetas y campos a la izquierda */
+/* Estilos del Subtítulo */
+.subtitle {
+    color: var(--text-color-medium); /* Color medio para el subtítulo */
+    margin-bottom: 30px; /* Más espacio debajo del subtítulo antes de los campos */
+    font-size: 1.05em; /* Tamaño de fuente ligeramente más grande */
+    line-height: 1.5; /* Altura de línea para mejor legibilidad */
 }
 
-.input-group label {
+/* Grupo de Formulario (label + input) */
+.form-group {
+    margin-bottom: 25px; /* Más espacio entre cada grupo de formulario */
+    text-align: left; /* Alinea etiquetas e inputs a la izquierda */
+}
+
+/* Etiquetas de los Campos (label) */
+.form-group label {
     display: block; /* Hace que la etiqueta ocupe su propia línea */
-    margin-bottom: 8px; /* Espacio debajo de la etiqueta */
-    color: #3498db; /* Azul para las etiquetas */
-    font-weight: 500; /* Peso de fuente medio */
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif; /* Usamos Poppins para las etiquetas */
+    margin-bottom: 8px; /* Espacio debajo de la etiqueta antes del input */
+    color: var(--text-color-dark); /* Color oscuro para las etiquetas */
+    font-weight: 600; /* Etiquetas semi-negritas */
+    font-size: 0.95em; /* Tamaño de fuente ligeramente más grande para etiquetas */
 }
 
-.input-group input[type="text"],
-.input-group input[type="password"] {
-    width: calc(100% - 28px); /* Ajusta el ancho para el padding y el borde */
-    padding: 14px; /* Relleno generoso para que el campo se vea más grande y fácil de usar */
-    border: 1px solid #ddd; /* Borde muy sutil y claro */
-    border-radius: 8px; /* Bordes suavemente redondeados en los campos */
-    font-size: 17px; /* Tamaño de fuente más grande dentro del campo */
-    color: #333; /* Color de texto oscuro para mayor legibilidad */
-    background-color: #f9f9f9; /* Un fondo ligeramente gris para los inputs, que los hace "flotar" un poco */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Transiciones suaves al interactuar */
-    font-family: 'Poppins', sans-serif; /* Usamos Poppins para el texto de los inputs */
+/* Campos de Entrada de Texto y Contraseña */
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor .form-group */
+    padding: 14px 18px; /* Mayor padding para campos más altos y cómodos */
+    border: 1px solid var(--border-color); /* Borde suave y neutro */
+    border-radius: 8px; /* Bordes más redondeados para los campos */
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+    font-size: 1.05em; /* Tamaño de fuente ligeramente más grande para la entrada */
+    color: var(--text-color-dark); /* Color de texto para la entrada */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave para efectos de enfoque */
 }
 
-/* Efecto al enfocar (hacer clic o tabular) en los campos */
-.input-group input[type="text"]:focus,
-.input-group input[type="password"]:focus {
-    border-color: #3498db; /* Borde azul vibrante al enfocar */
-    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.25); /* Una sombra suave azul que se expande */
-    background-color: #ffffff; /* El fondo del campo se vuelve blanco al enfocar */
-    outline: none; /* Quita el contorno feo que algunos navegadores ponen por defecto */
+/* Estilo del Placeholder */
+.form-group input::placeholder {
+    color: var(--text-color-medium); /* Color más tenue para el placeholder */
+    opacity: 0.8; /* Hacer el placeholder un poco más opaco para mayor visibilidad */
 }
 
-/* Botón de enviar (Entrar / Iniciar Sesión) */
-button {
-    background-color: #e74c3c; /* Rojo principal para el botón */
-    color: white; /* Texto blanco en el botón */
-    padding: 16px 30px; /* Relleno generoso para un botón más grande */
-    border: none; /* Sin borde por defecto */
-    border-radius: 8px; /* Bordes redondeados del botón */
-    font-size: 19px; /* Tamaño de fuente más grande */
-    font-weight: 600; /* Texto seminegrita */
+/* Estilo del Campo al Enfocar (focus) */
+.form-group input:focus {
+    border-color: var(--primary-color); /* Borde azul al enfocar */
+    outline: none; /* Elimina el contorno por defecto del navegador */
+    box-shadow: 0 0 0 0.25rem var(--focus-shadow-color); /* Sombra suave para indicar enfoque */
+}
+
+/* Botón de Login */
+.login-button {
+    background-color: var(--primary-color); /* Color de fondo principal */
+    color: white; /* Texto blanco */
+    padding: 14px 25px; /* Mayor padding para un botón más grande y fácil de presionar */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Animaciones suaves */
+    font-size: 1.15em; /* Fuente más grande */
+    font-weight: bold; /* Texto en negrita */
     width: 100%; /* Ocupa todo el ancho disponible */
+    margin-top: 15px; /* Espacio superior para separarlo de los inputs */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto al pasar el ratón sobre el botón (hover) */
+.login-button:hover {
+    background-color: var(--primary-dark-color); /* Color más oscuro al pasar el ratón */
+    transform: translateY(-3px); /* Efecto de "levantar" ligeramente el botón */
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3); /* Sombra más pronunciada al hover */
+}
+
+/* Efecto al hacer click en el botón (active) */
+.login-button:active {
+    transform: translateY(0); /* Vuelve a la posición normal al hacer click */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); /* Sombra reducida para el efecto de "presionado" */
+}
+
+/* Enlace de "Olvidaste tu contraseña?" */
+.forgot-password {
     margin-top: 20px; /* Espacio superior */
-    letter-spacing: 0.5px; /* Espaciado entre letras para un look limpio */
-    box-shadow: 0 8px 15px rgba(231, 76, 60, 0.3); /* Sombra inicial sutil para el botón */
-    font-family: 'Poppins', sans-serif; /* Usamos Poppins para el botón */
+    font-size: 0.95em; /* Tamaño de fuente ligeramente más grande */
 }
 
-/* Efecto al pasar el ratón por el botón */
-button:hover {
-    background-color: #c0392b; /* Rojo más oscuro al pasar el ratón */
-    transform: translateY(-3px); /* El botón se levanta un poco */
-    box-shadow: 0 12px 20px rgba(231, 76, 60, 0.4); /* La sombra se hace más grande y pronunciada */
+/* Enlace de "Registrarse" */
+.signup-link {
+    margin-top: 25px; /* Más espacio superior para separarlo del botón y "olvidaste contraseña" */
+    font-size: 0.95em; /* Tamaño de fuente consistente */
+    color: var(--text-color-medium); /* Color de texto secundario */
 }
 
-/* Efecto al hacer clic en el botón */
-button:active {
-    transform: translateY(0); /* Vuelve a su posición original */
-    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.2); /* La sombra se reduce un poco */
-}
-
-/* Enlaces adicionales (Registro) */
-.links {
-    margin-top: 35px; /* Más espacio superior para los enlaces */
-    font-size: 15px;
-    color: #555; /* Color de texto más suave */
-    font-family: 'Poppins', sans-serif; /* Usamos Poppins para los enlaces */
-}
-
-.links a {
-    color: #3498db; /* Azul para los enlaces */
+/* Estilos de los Enlaces (a) dentro de "Olvidaste contraseña" y "Registrarse" */
+.forgot-password a,
+.signup-link a {
+    color: var(--primary-color); /* Color azul principal para los enlaces */
     text-decoration: none; /* Quita el subrayado por defecto */
-    font-weight: 500;
-    transition: color 0.3s ease; /* Transición suave para el color */
+    font-weight: 500; /* Texto semi-negrita para los enlaces */
+    transition: text-decoration 0.2s ease; /* Transición suave para el subrayado */
 }
 
-/* Efecto al pasar el ratón por los enlaces */
-.links a:hover {
-    color: #2980b9; /* Azul más oscuro al pasar el ratón */
-    text-decoration: underline; /* Subrayado al pasar el ratón */
+/* Efecto al pasar el ratón sobre los enlaces */
+.forgot-password a:hover,
+.signup-link a:hover {
+    text-decoration: underline; /* Subraya el enlace al pasar el ratón */
 }
-/* Tamaños y posiciones aleatorias para los círculos */
-.background-animation span:nth-child(1) { left: 10%; width: 60px; height: 60px; animation-duration: 10s; }
-.background-animation span:nth-child(2) { left: 25%; width: 80px; height: 80px; animation-duration: 12s; animation-delay: 2s; }
-.background-animation span:nth-child(3) { left: 50%; width: 40px; height: 40px; animation-duration: 8s; animation-delay: 1s; }
-.background-animation span:nth-child(4) { left: 70%; width: 100px; height: 100px; animation-duration: 15s; }
-.background-animation span:nth-child(5) { left: 85%; width: 50px; height: 50px; animation-duration: 11s; animation-delay: 3s; }
-.background-animation span:nth-child(6) { left: 5%; width: 90px; height: 90px; animation-duration: 13s; animation-delay: 0.5s; }
-.background-animation span:nth-child(7) { left: 90%; width: 70px; height: 70px; animation-duration: 9s; animation-delay: 2.5s; }
 
-/* Animación para los círculos flotantes */
-@keyframes floatCircles {
-    0% { transform: translateY(0) scale(1); opacity: 0.8; }
-    50% { transform: translateY(-100vh) scale(1.1); opacity: 0.3; } /* Flota hacia arriba */
-    100% { transform: translateY(-200vh) scale(1); opacity: 0; } /* Desaparece arriba */
-}
+/*
+    Consideraciones Adicionales y Posibles Mejoras:
+
+    1.  **Validación de Formulario:** Implementar validación con JavaScript para asegurar que los campos no estén vacíos o cumplan ciertos formatos antes de enviar.
+    2.  **Iconos:** Añadir iconos dentro de los campos de entrada (ej. icono de usuario, icono de candado) para mejorar la usabilidad y la estética.
+    3.  **Responsive Design:** Aunque ya es bastante responsive, se podrían añadir Media Queries para ajustes más finos en dispositivos móviles muy pequeños o pantallas extremadamente grandes.
+    4.  **Accesibilidad (A11y):** Asegurarse de que los campos tienen `aria-label` o etiquetas explícitas para lectores de pantalla. El contraste de color también es importante.
+    5.  **Animaciones más sofisticadas:** Podrías añadir animaciones CSS para el efecto de "carga" del botón al hacer click, o para transiciones de estado de los inputs.
+    6.  **Mensajes de Error:** Estilos específicos para mostrar mensajes de error debajo de los campos cuando la validación falla.
+*/
