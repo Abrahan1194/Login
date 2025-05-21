@@ -1,32 +1,62 @@
 <!DOCTYPE html>
-<html lang="es"><!--comtenido de la pagina en español-->
+<html lang="es">
 <head>
-    <meta charset="UTF-8"><!--caracteres especiales -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--para que se adapte al anchor del celular -->
-    <title>Login</title> <!--Lo que se en la url de lap pagina-->
-    <link rel="stylesheet" href="style.css"> <!-- conectar con html -->
-</head><!--Cabeza de la pagina -->
-<body><!--Parte visible lo que el usuario ve -->
-    <div class="login-container"><!--Div contendor vacio, el login container es darle un nombre a la etique para css -->
-        <h2>LOGIN</h2><!--Encabezado -->
-        <form action="#" method="POST"><!--form action=#, idicia hacia donde va la informacion en este caso ningun lado,method Post es el atributo mas seguro para enviar datos -->
-            <div class="input-group"><!--se le da nombre a la etique de class pa css -->
-                <label for="username">Nombre Usuario :</label><!--Label etiqueta de texto -->
-                <input type="text" id="username" name="username" required><!--input:caja de texto,type:indica que es tipo texto -->
-                                    <!--id:indentificacion del campo,name"user name": es la llave , required quiere decir que es obligatorio el campo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Your App Dragon Ball</title>
+    <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h1>Login - Your App Dragon Ball</h1>
+            <p class="subtitle">Enter your credentials to access your account.</p>
+
+            <form action="/login" method="POST" aria-labelledby="login-heading">
+                <div class="form-group">
+                    <label for="username">Username / email</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Username/email"
+                        required
+                        autocomplete="username"
+                        aria-describedby="username-help"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                        autocomplete="current-password"
+                        aria-describedby="password-help"
+                    >
+                </div>
+
+                <button type="submit" class="login-button">
+                    Login
+                </button>
+            </form>
+
+            <div class="forgot-password">
+                <a href="/forgot-password">¿Forgot your password?</a>
             </div>
-            <div class="input-group"><!--se le da nombre a la etique de class pa css -->
-                <label for="password">Ingrese Contraseña: </label><!--Label etiqueta de texto -->
-                <input type="password" id="password" name="password" required><!--input:caja de texto,type:indica que es tipo texto -->
-                                    <!--id:indentificacion del campo,name"user name": es la llave , required quiere decir que es obligatorio el campo -->
+
+            <div class="signup-link">
+                Don't have an account? <a href="/signup">Register here</a>
             </div>
-            <button type="submit">Ingresar.</button><!--type summit:indica que envia datos al formulario,ingrear texto que aparace  -->
-            <div class="links"><!--se le da nombre a la etique de class pa css -->
-                <a href="#">¿Olvidaste tu contraseña?</a><!--a:para hipervinculos ,# : donde va la pagina web-->
-                <a href="#">Registrarse</a><!--a:para hipervinculos ,# : donde va la pagina web-->
-            </div>
-        </form>
+        </div>
     </div>
-</body>
+    </body>
 </html>
 
