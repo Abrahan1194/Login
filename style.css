@@ -233,13 +233,3 @@ h1 {
     text-decoration: underline; /* Subraya el enlace al pasar el ratón */
 }
 
-/*
-    Consideraciones Adicionales y Posibles Mejoras:
-
-    1.  **Validación de Formulario:** Implementar validación con JavaScript para asegurar que los campos no estén vacíos o cumplan ciertos formatos antes de enviar.
-    2.  **Iconos:** Añadir iconos dentro de los campos de entrada (ej. icono de usuario, icono de candado) para mejorar la usabilidad y la estética.
-    3.  **Responsive Design:** Aunque ya es bastante responsive, se podrían añadir Media Queries para ajustes más finos en dispositivos móviles muy pequeños o pantallas extremadamente grandes.
-    4.  **Accesibilidad (A11y):** Asegurarse de que los campos tienen `aria-label` o etiquetas explícitas para lectores de pantalla. El contraste de color también es importante.
-    5.  **Animaciones más sofisticadas:** Podrías añadir animaciones CSS para el efecto de "carga" del botón al hacer click, o para transiciones de estado de los inputs.
-    6.  **Mensajes de Error:** Estilos específicos para mostrar mensajes de error debajo de los campos cuando la validación falla.
-*/
